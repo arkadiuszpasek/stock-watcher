@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateInput, fetchDailyEntries } from '../actions';
+import { updateInput, fetchStock } from '../actions';
 
 class Input extends React.Component {
   onInputChange = (e) => {
@@ -9,14 +9,16 @@ class Input extends React.Component {
   };
 
   onButtonClick = () => {
-    this.props.fetchDailyEntries(this.props.input);
+    this.props.fetchStock(this.props.input);
   };
 
   render() {
     return (
       <>
-        <label>ss</label>
-        <input onChange={this.onInputChange}></input>
+        <input
+          onChange={this.onInputChange}
+          placeholder="Enter stock ticker"
+        ></input>
         <button onClick={this.onButtonClick}>Search</button>
       </>
     );
@@ -31,5 +33,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   updateInput,
-  fetchDailyEntries,
+  fetchStock,
 })(Input);
