@@ -8,10 +8,10 @@ const stocks = require('./routes/stocks');
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect(
-  'mongodb+srv://root:rootpwd123@cluster0.35emn.mongodb.net/StockWatcher?retryWrites=true&w=majority',
-  { useNewUrlParser: true, useUnifiedTopology: true },
-);
+mongoose.connect('mongodb://mongo:27017/docker-stock-watcher', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(express.static(path.join(__dirname, 'build')));
 
