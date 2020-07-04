@@ -1,33 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { fetchAllStocks, fetchStock } from '../actions';
+import { fetchAllStocks, fetchStock, startStockLoad } from '../actions';
 import { State } from '../types';
+import * as styles from '../styles/vars';
 
-const StocksList = styled.ul``;
+const StocksList = styled.div`
+  // background: ${styles.PRIMARY_GRAY};
+  margin: 1rem 0;
+  padding: 1rem 3rem;
+  text-align: left;
+  border-top: 3px dashed ${styles.THIRD_COLOR};
+  border-bottom: 3px dashed ${styles.THIRD_COLOR};
+`;
 
 const ListItem = styled.li`
-  padding: 0.4rem 1.2rem;
+  padding: 0.25rem 1rem;
   margin: 0.5rem;
-  border-radius: 15%;
+  border-radius: ${styles.BORDER_RADIUS};
   cursor: pointer;
   background: #f3f3f3;
   color: black;
-  display: inline;
-  transition: all 0.3s ease;
+  display: inline-block;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: red;
+    background: ${styles.COMPLEMENTARY_COLOR};
   }
 `;
 
-class List extends React.Component {
+interface PropsInterface {
+  stocks: Array<any>;
+  fetchStock: (stock: string) => void;
+  fetchAllStocks: () => void;
+  startStockLoad: () => void;
+}
+
+class List extends React.Component<PropsInterface> {
   componentDidMount() {
-    this.props.fetchAllStocks();
+    const { fetchAllStocks } = this.props;
+    fetchAllStocks();
   }
 
   onStockClick = (stock: string) => {
-    this.props.fetchStock(stock);
+    const { fetchStock, startStockLoad } = this.props;
+    fetchStock(stock);
+    startStockLoad();
   };
 
   renderList = () => {
@@ -51,16 +69,26 @@ class List extends React.Component {
     );
   };
 
-  render() {
+  renderFrequentStocks = () => {
+    const { stocks } = this.props;
+    if (!stocks || stocks.length <= 0) {
+      return '';
+    }
+
     return (
-      <>
-        <StocksList>{this.renderList()}</StocksList>
-      </>
+      <StocksList>
+        <h3>Users' most frequently searched stocks</h3>
+        <ul>{this.renderList()}</ul>
+      </StocksList>
     );
+  };
+
+  render() {
+    return <div>{this.renderFrequentStocks()}</div>;
   }
 }
 
-const mapStateToProps = (state: { stocksList: State }) => {
+const mapStateToProps = (state: State) => {
   return {
     stocks: state.stocksList,
   };
@@ -69,4 +97,5 @@ const mapStateToProps = (state: { stocksList: State }) => {
 export default connect(mapStateToProps, {
   fetchAllStocks,
   fetchStock,
+  startStockLoad,
 })(List);

@@ -5,13 +5,18 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Input from './components/Input';
 import List from './components/List';
 import StockDetail from './components/StockDetail';
+import * as styles from './styles/vars';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #425e49;
+    background-color: ${styles.BG_COLOR};
   }
   * {
+    font-family: 'Roboto', sans-serif;
     color: white;
+    border-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -21,15 +26,21 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const Top = styled.div`
+  text-align: center;
+`;
+
 class App extends React.Component {
   render() {
     return (
-      <Container>
+      <Top>
         <GlobalStyle />
         <Input />
         <List />
-        <StockDetail />
-      </Container>
+        <Container>
+          <StockDetail />
+        </Container>
+      </Top>
     );
   }
 }
