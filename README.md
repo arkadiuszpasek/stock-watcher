@@ -1,4 +1,4 @@
-![docker](https://img.shields.io/badge/Docker-green)![docker](https://img.shields.io/badge/Node-Express-green) ![docker](https://img.shields.io/badge/React-Redux-green) ![docker](https://img.shields.io/badge/Mongo-green) ![docker](https://img.shields.io/badge/Amazon%20AWS-EC2-green)
+![docker](https://img.shields.io/badge/Docker-green) ![docker](https://img.shields.io/badge/Node-Express-green) ![docker](https://img.shields.io/badge/React-Redux-green) ![docker](https://img.shields.io/badge/Mongo-green) ![docker](https://img.shields.io/badge/Amazon%20AWS-EC2-green)
 
 # Stock watcher
 
