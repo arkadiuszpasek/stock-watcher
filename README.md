@@ -14,3 +14,6 @@
 ### Project information
 
 This project allows user to get information of stocks at the market. User can enter a ticker symbol, making a call to API, which responds with information of recent prices of this stock, on the front last 7 days of prices are displayed. API takes notice of user asking for this stock and then uses collected information to display which stocks are most popular.
+
+#### How can I run this locally?
+You can start the backend api on your local machine, but you'd probably need to change the way it establishes connection with MongoDB
