@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     container_name: docker-stock-watcher
-    resart: always
+    restart: always
     build: .
     ports:
       - '80:5000'
@@ -11,5 +11,8 @@ services:
   mongo:
     container_name: mongo
     image: mongo
+    restart: always
+    volumes:
+      - /data/mongo:data/db
     ports:
       - '27017:27017'
