@@ -2,6 +2,8 @@
 
 # Stock watcher
 
+Hosted here: http://ec2-3-122-41-0.eu-central-1.compute.amazonaws.com
+
 ### Technologies/services used:
 
 - Amazon AWS EC2, working as Ubuntu 18 VPS
