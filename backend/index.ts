@@ -1,17 +1,21 @@
 export {};
 const express = require('express');
-const stocks = require('./routes/stocks');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const path = require('path');
+const stocks = require('./routes/stocks');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 mongoose.connect(
   'mongodb+srv://root:rootpwd123@cluster0.35emn.mongodb.net/StockWatcher?retryWrites=true&w=majority',
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
 );
 
-app.use('/stocks', stocks);
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.use('/stocks', cors(), stocks);
 
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);

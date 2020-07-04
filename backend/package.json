@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.20",
     "ts-node-dev": "^1.0.0-pre.50"

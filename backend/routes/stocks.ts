@@ -48,8 +48,16 @@ router.get('/:ticker', async (req, res) => {
       },
     });
 
+    const entries = {};
+
+    for (const [key, value] of Object.entries(
+      resp.data['Time Series (Daily)'],
+    )) {
+      entries[key] = value['4. close'];
+    }
+
     response = {
-      data: resp.data['Time Series (Daily)'],
+      data: entries,
     };
   } catch (err) {
     console.log('Error fetching stock from AlphaVantage: ', err);
