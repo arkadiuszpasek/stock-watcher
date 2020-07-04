@@ -20,7 +20,7 @@
   "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build ../backend/",
+    "build": "rm -rf ../backend/build && react-scripts build && mv build ../backend/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
