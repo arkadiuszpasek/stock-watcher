@@ -54,7 +54,6 @@ const StockTable = (props: PropsInterface) => {
         {value}
       </td>
     ));
-    console.log(headers);
 
     return (
       <Table>

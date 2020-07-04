@@ -5,4 +5,4 @@ export const PRIMARY_DARK = '#312D33';
 export const PRIMARY_GRAY = '#383F45';
 export const COMPLEMENTARY_COLOR = '#666685';
 
-export const BORDER_RADIUS = '15%';
+export const BORDER_RADIUS = '7px';

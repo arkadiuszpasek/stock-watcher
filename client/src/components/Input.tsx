@@ -7,15 +7,16 @@ import * as styles from '../styles/vars';
 const InputElement = styled.input`
   background-color: #f3f3f3;
   color: ${styles.PRIMARY_DARK};
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: ${styles.BORDER_RADIUS};
   margin: 1.5rem 0.5rem 0.5rem;
   text-align: center;
+  border: none;
 `;
 
 const Button = styled.button`
   background-color: ${styles.COMPLEMENTARY_COLOR};
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: ${styles.BORDER_RADIUS};
   border: none;
   transition: all 0.2s ease;
@@ -40,11 +41,21 @@ class Input extends React.Component {
     startStockLoad();
   };
 
+  onKeyDown = (e) => {
+    // If user pressed 'enter'
+    if (e.keyCode === 13) {
+      const { startStockLoad } = this.props;
+      this.props.fetchStock(this.props.input);
+      startStockLoad();
+    }
+  };
+
   render() {
     return (
       <div>
         <InputElement
           onChange={this.onInputChange}
+          onKeyDown={this.onKeyDown}
           placeholder="Enter stock ticker"
           value={this.props.input}
         ></InputElement>
