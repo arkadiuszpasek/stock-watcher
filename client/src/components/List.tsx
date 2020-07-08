@@ -77,7 +77,7 @@ class List extends React.Component<PropsInterface> {
 
     return (
       <StocksList>
-        <h3>Users' most frequently searched stocks</h3>
+        <h3>Traders' most frequently searched stocks</h3>
         <ul>{this.renderList()}</ul>
       </StocksList>
     );
