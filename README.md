@@ -20,4 +20,4 @@ This project allows user to get information of stocks at the market. User can en
 ##### I used alphavantage as 3rd party api with free tier, there are call limits (after a few lookups it might start to take long time to get back data, until limits are lifted (should reset after 1 minute))  
 
 #### How can I run this locally?
-You can start the backend api on your local machine, but you'd probably need to change the way it establishes connection with MongoDB
+You can start the backend api on your local machine, but you'd probably need to change the way it establishes connection with MongoDB.
