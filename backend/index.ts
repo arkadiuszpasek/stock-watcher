@@ -8,8 +8,8 @@ const stocks = require('./routes/stocks');
 const app = express();
 const port = process.env.PORT || 5000;
 
-const mongoUrl = 'mongodb+srv://root:rootpwd123@cluster0.35emn.mongodb.net/<dbname>?retryWrites=true&w=majority'
-// const mongoUrl = 'mongodb://mongo:27017/docker-stock-watcher'
+// const mongoUrl = 'mongodb+srv://root:rootpwd123@cluster0.35emn.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const mongoUrl = 'mongodb://mongo:27017/docker-stock-watcher'
 
 mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
