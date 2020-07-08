@@ -2,7 +2,7 @@
 
 # Stock watcher
 
-Hosted here: http://ec2-3-124-185-184.eu-central-1.compute.amazonaws.com
+Hosted here: http://ec2-18-157-182-151.eu-central-1.compute.amazonaws.com
 
 ### Technologies/services used:
 
